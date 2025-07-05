@@ -1,0 +1,32 @@
+✅ 1. Simplified Sequence Formatting
+Combined prompt and target into a single sequence:
+"123+456=975" (with 975 reversed as 579)
+
+Removed separate masking logic (y = -1) — instead, used a causal LM setup where the model learns to predict the next token in the full sequence.
+
+✅ 2. Fixed Data Encoding + Target Shift
+Instead of separately encoding x and y, we now:
+
+Encode the entire sequence
+
+Use x[:, :-1] as input and x[:, 1:] as target
+This ensures proper next-token prediction across the full problem and answer.
+
+✅ 3. Removed Problematic Loss Masking
+No more -1 in targets and no ignore_index needed.
+
+Clean and standard causal LM loss:
+
+python
+Copy
+Edit
+loss = F.cross_entropy(logits.view(-1, vocab_size), targets.view(-1))
+✅ 4. Sampling Tweaks
+Replaced greedy decoding with multinomial sampling for diversity.
+
+Trimmed output only after the = symbol to extract the generated reversed sum.
+
+✅ 5. Position Embedding & block_size Fix
+Ensured position_embedding_table has enough capacity.
+
+Set block_size = len(full sequence) = DIGITS*2 + 2 + DIGITS + 1 (for a+b=+sum)
