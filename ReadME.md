@@ -1,12 +1,12 @@
-# 🧠 GPT From Scratch – Transformer Experiments
+#  GPT From Scratch – Transformer Experiments
 
 This repository follows the *nanoGPT-style* implementation of a GPT model from scratch in PyTorch, with progressively advanced modifications across exercises. It’s based on the educational series by Andrej Karpathy and enhanced with state-of-the-art techniques in later stages.
 
 ---
 
-## 📁 Exercise Summary
+##  Exercise Summary
 
-### ✅ `Ex1.py`: Vanilla GPT with Head and MultiHeadAttention combined into one class 
+###  `Ex1.py`: Vanilla GPT with Head and MultiHeadAttention combined into one class 
 
 - **Goal**: Implement a basic GPT model trained on TinyShakespeare.
 - **Features**:
@@ -18,7 +18,7 @@ This repository follows the *nanoGPT-style* implementation of a GPT model from s
 
 ---
 
-### ✅ `Ex2.py`: Addition GPT
+###  `Ex2.py`: Addition GPT
 
 - **Goal**: Train a GPT model to perform integer addition (e.g., `123+456=579`).
 - **Modifications**:
@@ -33,7 +33,7 @@ This repository follows the *nanoGPT-style* implementation of a GPT model from s
 
 ---
 
-### ✅ `Ex3.py`:  Pretraining on Large Dataset and Finetuning on TinY Shakespeare
+###  `Ex3.py`:  Pretraining on Large Dataset and Finetuning on TinY Shakespeare
 
 - Chose large dataset like openwebtext
 - Tokenize the data using the same vocabulary/tokenizer as Shakespeare
@@ -48,7 +48,7 @@ torch.save(model.state_dict(), 'pretrained_gpt.pt')
 - Lower validation loss after pretraining 
 ---
 
-### ✅ `Ex4.py`: Transformer Improvements
+###  `Ex4.py`: Transformer Improvements
 
 - **Goal**: Enhance the vanilla GPT with modern architectural improvements.
 - **Implemented Features**:
